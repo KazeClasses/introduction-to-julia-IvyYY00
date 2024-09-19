@@ -4,8 +4,16 @@ using Test
 using Random
 
 function insertion_sort!(array::Array{Int, 1})
-    # Insert your code here
-end
+    for i in 2:length(array)
+        key = array[i]
+        j = i-1
+        while j > 0 && array[j] > key
+            array[j + 1] = array[j]
+            j -= 1
+        end
+        array[j + 1] = key
+    end
+end 
 
 function check_sort(N::Int = 100)
     array = collect(1:N)
